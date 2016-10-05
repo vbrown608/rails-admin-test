@@ -24,9 +24,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
+# Users
+gem 'devise'
+
 # Content management
 gem 'rails_admin', '~> 1.0'
 gem 'ckeditor'
+gem 'paper_trail'
 
 
 # Use ActiveModel has_secure_password
