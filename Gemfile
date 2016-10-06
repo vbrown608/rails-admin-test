@@ -31,6 +31,9 @@ gem 'devise'
 gem 'rails_admin', '~> 1.0'
 gem 'ckeditor'
 gem 'paper_trail'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'rails_admin_tag_list'
+
 
 
 # Use ActiveModel has_secure_password

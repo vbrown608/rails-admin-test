@@ -52,7 +52,16 @@ RailsAdmin.config do |config|
   config.model BlogPost do
     edit do
       field :title
+      field :users do
+        label "Authors"
+        help "Required - who wrote this blog post?"
+      end
       field :body, :ck_editor
+      fields_of_type :tag_list do
+        label "Tags"
+        # partial "tag_list_with_autocomplete"
+      end
+      field :tag_list
       field :legal_cases
       field :published
       field :promoted
