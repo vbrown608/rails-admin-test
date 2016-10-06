@@ -44,6 +44,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    import
 
     ## With an audit adapter, you can add:
     history_index
@@ -53,9 +54,14 @@ RailsAdmin.config do |config|
     nestable
   end
 
+  config.configure_with(:import) do |config|
+    config.logging = true
+  end
+
   config.model BlogPost do
     edit do
       field :title
+      field :id_from_kittens
       field :users do
         label "Authors"
         help "Required - who wrote this blog post?"
@@ -66,15 +72,28 @@ RailsAdmin.config do |config|
         # partial "tag_list_with_autocomplete"
       end
       field :tag_list
+      field :issues
       field :legal_cases
       field :published
       field :promoted
+    end
+    list do
+      field :title
+      field :published
+      field :issues
+    end
+    import do
+      mapping_key :id_from_kittens
     end
   end
 
   config.model LegalCase do
     edit do
       field :title
+      field :id_from_kittens
+    end
+    import do
+      mapping_key :id_from_kittens
     end
   end
 
@@ -84,7 +103,15 @@ RailsAdmin.config do |config|
       })
     edit do
       field :name
+      field :id_from_kittens
       field :body, :ck_editor
+    end
+    import do
+      mapping_key :id_from_kittens
+    end
+    list do
+      field :name
+      field :body
     end
   end
 end

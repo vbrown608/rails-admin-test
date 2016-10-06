@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006015526) do
+ActiveRecord::Schema.define(version: 20161006063434) do
 
   create_table "blog_posts", force: :cascade do |t|
     t.string  "title"
     t.string  "body"
     t.boolean "published"
     t.boolean "promoted"
+    t.integer "id_from_kittens"
   end
+
+  create_table "blog_posts_issues", force: :cascade do |t|
+    t.integer "blog_post_id"
+    t.integer "issue_id"
+  end
+
+  add_index "blog_posts_issues", ["blog_post_id"], name: "index_blog_posts_issues_on_blog_post_id"
+  add_index "blog_posts_issues", ["issue_id"], name: "index_blog_posts_issues_on_issue_id"
 
   create_table "blog_posts_legal_cases", id: false, force: :cascade do |t|
     t.integer "blog_post_id"
@@ -41,12 +50,14 @@ ActiveRecord::Schema.define(version: 20161006015526) do
     t.string  "body"
     t.string  "ancestry"
     t.integer "position"
+    t.integer "id_from_kittens"
   end
 
   add_index "issues", ["ancestry"], name: "index_issues_on_ancestry"
 
   create_table "legal_cases", force: :cascade do |t|
-    t.string "title"
+    t.string  "title"
+    t.integer "id_from_kittens"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -89,6 +100,7 @@ ActiveRecord::Schema.define(version: 20161006015526) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "id_from_kittens"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
