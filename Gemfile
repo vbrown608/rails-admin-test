@@ -31,6 +31,7 @@ gem 'devise'
 # Content management
 gem 'rails_admin', '~> 1.0'
 gem 'ckeditor'
+# gem 'ckeditor_rails'
 gem 'paper_trail'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'rails_admin_tag_list'
@@ -38,9 +39,10 @@ gem 'ancestry'
 gem 'rails_admin_nestable', '~> 0.3.2'
 gem "rails_admin_import", "~> 2.0"
 gem 'rails_admin_history_rollback'
+gem 'paperclip'
 
+# gem "non-stupid-digest-assets"
 
-gem "non-stupid-digest-assets"
 
 
 # Use ActiveModel has_secure_password
