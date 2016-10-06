@@ -58,6 +58,8 @@ RailsAdmin.config do |config|
     config.logging = true
   end
 
+  config.excluded_models = ["Ckeditor::Asset", "Ckeditor::Picture", "Ckeditor::AttachmentFile"]
+
   config.model BlogPost do
     edit do
       field :title
