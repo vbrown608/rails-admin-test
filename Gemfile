@@ -33,6 +33,8 @@ gem 'ckeditor'
 gem 'paper_trail'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'rails_admin_tag_list'
+gem 'ancestry'
+gem 'rails_admin_nestable', '~> 0.3.2'
 
 
 

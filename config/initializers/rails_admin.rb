@@ -33,6 +33,7 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
 
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -47,6 +48,9 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     history_index
     history_show
+
+    ## Issues
+    nestable
   end
 
   config.model BlogPost do
@@ -71,6 +75,16 @@ RailsAdmin.config do |config|
   config.model LegalCase do
     edit do
       field :title
+    end
+  end
+
+  config.model Issue do
+    nestable_tree({
+      position_field: :position
+      })
+    edit do
+      field :name
+      field :body, :ck_editor
     end
   end
 end
