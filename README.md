@@ -20,4 +20,4 @@ The admin UI was pretty easy to configure and seems quite flexible. I think the 
 Non-admin pages work like plain old rails - get the content in a controller and template it in views.
 
 ## Internationalization
-I didn't have time to try this out, but the globalize gem (https://github.com/globalize/globalize) looks promising. It has an interesting integration with the rails_admin gem: https://github.com/scarfaceDeb/rails_admin_globalize_field
+Provides multilingual content useing the globalize gem (https://github.com/globalize/globalize) and an integration with the rails_admin gem (https://github.com/scarfaceDeb/rails_admin_globalize_field)
