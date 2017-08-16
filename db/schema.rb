@@ -75,18 +75,22 @@ ActiveRecord::Schema.define(version: 20170816215645) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "issues", force: :cascade do |t|
-    t.string  "name"
-    t.string  "body"
-    t.string  "ancestry"
-    t.integer "position"
-    t.integer "id_from_kittens"
+    t.string   "name"
+    t.string   "body"
+    t.string   "ancestry"
+    t.integer  "position"
+    t.integer  "id_from_kittens"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "issues", ["ancestry"], name: "index_issues_on_ancestry"
 
   create_table "legal_cases", force: :cascade do |t|
-    t.string  "title"
-    t.integer "id_from_kittens"
+    t.string   "title"
+    t.integer  "id_from_kittens"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -115,6 +119,15 @@ ActiveRecord::Schema.define(version: 20170816215645) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "updates", force: :cascade do |t|
+    t.string   "content_type", null: false
+    t.integer  "content_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "updates", ["content_type"], name: "index_updates_on_content_type"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

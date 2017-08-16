@@ -1,0 +1,13 @@
+<div class="admin-actions" data-turbolinks="false">
+  <%= link_to "edit", rails_admin.edit_path(model_name: "issue", id: @issue.id) %>
+</div>
+
+<div class="user-content">
+  <%= sanitize @issue.body, tags: user_content_allowed_tags %>
+</div>
+
+<h2 id="related-content">Related Content</h2>
+
+<%= render "content/teaser_feed", content: @related_content %>
+
+<%= paginate(@related_content, params: { anchor: "related-content" }) %>

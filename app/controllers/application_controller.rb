@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def render_content(content)
+    @title = content.title
+    render "content/longread", locals: { content: content }
+  end
+
   def set_locale
     if I18n.available_locales.map(&:to_s).include?(params[:lang])
       I18n.locale = params[:lang]

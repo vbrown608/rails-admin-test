@@ -1,0 +1,21 @@
+<div class="admin-actions" data-turbolinks="false">
+  <%= link_to "edit", rails_admin.edit_path(model_name: content.class.name.underscore, id: content.id) %>
+</div>
+
+<% translations = content.try(:translations) || [] %>
+<% if translations.size > 1 %>
+<div class="translation-links">
+  <strong>Language:</strong>
+  <ul>
+    <% translations.each do |translation| %>
+    <li><%= link_to translation.locale, "?lang=#{translation.locale}" %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="user-content">
+  <%= sanitize content.body, tags: user_content_allowed_tags %>
+</div>
+
+<%= render "content/related_tags", content: content %>
