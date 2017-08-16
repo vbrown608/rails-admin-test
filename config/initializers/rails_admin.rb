@@ -58,17 +58,17 @@ RailsAdmin.config do |config|
     config.logging = true
   end
 
-  config.excluded_models = ["Ckeditor::Asset", "Ckeditor::Picture", "Ckeditor::AttachmentFile"]
+  config.included_models = ['BlogPost', 'BlogPost::Translation', 'Issue', 'LegalCase', 'User']
 
-  config.model BlogPost do
+  config.model "BlogPost" do
     edit do
-      field :title
+      field :translations, :globalize_tabs
+
       field :id_from_kittens
       field :users do
         label "Authors"
         help "Required - who wrote this blog post?"
       end
-      field :body, :ck_editor
       fields_of_type :tag_list do
         label "Tags"
         # partial "tag_list_with_autocomplete"
@@ -79,17 +79,28 @@ RailsAdmin.config do |config|
       field :published
       field :promoted
     end
+
     list do
       field :title
       field :published
       field :issues
     end
+
     import do
       mapping_key :id_from_kittens
     end
   end
 
-  config.model LegalCase do
+  config.model "BlogPost::Translation" do
+    configure :locale, :hidden do
+      help ''
+    end
+
+    include_fields :locale, :title
+    field :body, :ck_editor
+  end
+
+  config.model "LegalCase" do
     edit do
       field :title
       field :id_from_kittens
@@ -99,7 +110,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model Issue do
+  config.model "Issue" do
     nestable_tree({
       position_field: :position
       })

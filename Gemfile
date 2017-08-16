@@ -40,7 +40,8 @@ gem 'rails_admin_nestable', '~> 0.3.2'
 gem "rails_admin_import", "~> 2.0"
 gem 'rails_admin_history_rollback'
 gem 'paperclip'
-
+gem 'globalize'
+gem 'rails_admin_globalize_field'
 # gem "non-stupid-digest-assets"
 
 

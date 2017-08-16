@@ -1,0 +1,3 @@
+<%= render "content/teaser_feed", content: @updates.map(&:content) %>
+
+<%= paginate(@updates) %>

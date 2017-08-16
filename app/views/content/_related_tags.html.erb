@@ -1,0 +1,15 @@
+<div class="related-tags">
+  <% if content.tags.present? %>
+  <h3>Related Tags:</h3>
+  <ul>
+    <% content.tags.each do |tag| %><li><%= link_to tag.name, "#" %></li><% end %>
+  </ul>
+  <% end %>
+
+  <% if content.issues.present? %>
+  <h3>Related Issues:</h3>
+  <ul>
+    <% content.issues.each do |issue| %><li><%= link_to issue.name, issue %></li><% end %>
+  </ul>
+  <% end %>
+</div>
